@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+    <link rel="stylesheet" href="main.css">
+    
+</head>
+<body>
+    <h1>KanBan<span style="color:greenyellow">Board</span></h1>
+    <h1></h1>
+    <div class="app">
+        <div class="lists">
+            <div class="list">
+                <h2>ToDo</h2>
+                
+                <div class="link-div">
+                    <input type="text" id="new_text" value="" class="btn" placeholder="Enter Here"/>
+                    
+                    <input type="button" name="btnAddNew" value="Add" class="add-button" />
+                </div>
+                    <ul class="sortable connectedSortable">
+                        <li><div class="list-item">Use kanban</div></li>
+                        <li><div class="list-item">Learn kanban tool</div></li>
+                      
+                    </ul>
+                   
+                    </div>
+            <div class="list">
+                <h2>In Progress</h2> 
+            <ul class="sortable connectedSortable" >
+                <li><div class="list-item">Learn kanban</div></li>
+                <li><div class="k"></div></li>  
+             
+               
+                </ul>
+            </div>
+            <div class="list">
+                
+                <h2>Testing</h2>
+                
+                <ul class="sortable connectedSortable" >
+                    <li><div class="k"></div></li>  
+                    
+                </ul>
+            </div>
+            <div class="list">
+                <h2>Done</h2>
+        <ul class="sortable connectedSortable" >
+                    
+                   <li><div class="k"></div></li> 
+                    </ul>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+    $( ".sortable" ).sortable({
+      connectWith: ".connectedSortable",
+      receive: function( event, ui ) {
+        $(this).css({"background-color":""});
+      }
+    });$().disableSelection();
+
+
+    $('.add-button').click(function() {
+        var txtNewItem = $('#new_text').val();
+        $(this).closest('div.list').find('ul').append('<li class="list-item">'+txtNewItem+'</div>');
+    });    
+  });
+
+    </script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
